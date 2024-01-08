@@ -1,0 +1,78 @@
+        userPostList - API
+---------------------------------------------------
+
+demo16 = 6426aad1382909befb38eabf
+demo17 = 6426aadd382909befb38ead1
+demo18 = 6426aaee382909befb38eae7
+
+        Request
+demo16 ~~> demo17, demo18
+demo17 ~~> demo16
+demo18 ~~> demo16, 
+
+        Accept
+demo16 ~~> demo17, demo18
+demo17 ~~> 
+demo18 ~~> demo16
+
+
+demo16 ~~> 16-1, 16-2, 16-3
+demo18 ~~> lorem, aaaaaa, wwwww
+demo17 ~~> 17-1, 17-2, 17-3
+
+what i see 
+demo16 ~~> 17-1, 17-2, lorem, aaaaaa, wwwww
+demo17 ~~> 16-1, 16-2, 16-3
+demo18 ~~> 16-1, 16-2, 16-3,  
+
+====================================================
+        groupChat - Socket
+---------------------------------------------------
+demo16 = 6426aad1382909befb38eabf - admin
+demo17 = 6426aadd382909befb38ead1 - user1
+demo18 = 6426aaee382909befb38eae7 - user2
+
+demoUser = 6426bac269c9ba33533dbdc0 - group
+
+
+=====================================================
+group ~~> 64368f3563377db9f779d939
+user ~~> 6426aad1382909befb38eabf - admin
+
+- Socket : inviteGroup
+{
+    "user_id": "6422dd21d505c01c29560506",
+    "group_id": "64368f3563377db9f779d939",
+    "notification_img": "https://res.cloudinary.com/dat4u94dd/image/upload/v1679914509/iu3cqrawd96lm7b8jw3t.jpg",
+    "user_name": "demo2"
+}
+
+
+user1 = 643e7187f3ab6de4d67517b7 = demo25
+user2 = 643e718ff3ab6de4d67517c4 = demo26
+
+~~~~~~~~> Blog
+blog1 = user1 = 643e74b8f3ab6de4d6751af2 ~like~> user2 
+blog1 = user1 = 643e74b8f3ab6de4d6751af2 ~comment-2~> user2 
+
+~~~~~~~~> Event
+even1 = user1 = 643e7187f3ab6de4d67517b7
+
+{
+    "development": {
+        "database": "app",
+        "username": "root",
+        "password": "",           
+        "host": "127.0.0.1",
+        "dialect": "mysql", 
+        "seederStorage": "sequelize"
+    },
+    "production": {
+        "username": "root",
+        "password": null,
+        "database": "master",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "seederStorage": "sequelize"
+    }
+}

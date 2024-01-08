@@ -1,0 +1,130 @@
+
+============== USER ==============
+
+- Socket : joinUser
+{
+    "user_id": "648173cb19a4de60e5bdc67f"
+}
+
+
+- Socket : chat
+{
+    "sender_id": "6487f85219a4de60e5cb082a",
+    "receiver_id": "648173cb19a4de60e5bdc67f",
+    "message": "Hello!"
+}
+- emit : chatReceive
+
+
+- Socket : readUnread
+{
+    "chat_room_id": "63c8cad60e4f2027fc6d533a",
+    "user_id": "63c7dde43c7070c4df51117a"
+}
+- emit : readChat
+
+
+
+============== COMMUNITY ==============
+
+
+- Socket : inviteGroup
+{
+    "user_id": "64217605b693032b7a06e335",
+    "group_id": "64219868a87bc49c53cf4c24",
+    "notification_img": "https://res.cloudinary.com/dat4u94dd/image/upload/v1679914509/iu3cqrawd96lm7b8jw3t.jpg",
+    "user_name": "test012"
+}
+
+
+- Socket : acceptInvite
+{
+    "group_id": "640acfc921839985e4d6d23e", 
+    "user_id": "6409267cba8f793e28c86183",
+    "action": "1" (1-Accept, 2-Reject)
+}
+
+
+[If group_type-1 (1/2 (1-Public, 2-Private))]
+- Socket : joinGroup
+{
+    "groupId" : "648c255919a4de60e5d3b0af",
+    "userId" : "6487f85219a4de60e5cb082a",
+    "group_type" : 1
+}
+- emit : groupJoin
+
+[If group_type-2]
+- Socket : joinGroup
+{
+    "group_id": "64243d01cb2ba2880ab589f4",
+    "user_id": "6422dd10d505c01c295604ee",
+    "group_type": 2,
+    "notification_img": "https://res.cloudinary.com/tcloud/image/upload/v1673262748/lcnbz5ch2domvf40jmta.png",
+    "user_name": "demo1"
+}
+- emit : groupJoin
+
+
+- Socket : groupChat
+{
+    "groupId": "6488002919a4de60e5cb2021",
+    "groupName": "Ashish Grp",
+    "sender_id": "6487f85219a4de60e5cb082a",
+    "message": "km chho"
+}
+- emit : messageYou
+
+
+- Socket : groupChatReadUnread
+{
+    "userId": "63e21501a436ea28cdd0f1cb",
+    "groupId": "64116e34e0278f59be4119b0"
+}
+- emit : groupReadChat
+
+
+
+============== REQUEST TO FRIEND ==============
+
+
+
+- Socket : friendRequest
+{
+    "user_id": "6426aadd382909befb38ead1",
+    "req_user_id": "6426aaee382909befb38eae7"
+}
+- emit : followRequest
+
+
+- Socket : friendReqAccept [action: 1-accept, 2-decline]
+{
+    "user_id": "6426aaee382909befb38eae7",
+    "req_user_id": "6426aadd382909befb38ead1",
+    "action": 1
+}
+- emit : requestAccept
+
+
+- Socket : checkInAppPurchase
+{
+    "user_id" : "648173cb19a4de60e5bdc67f",
+    "subscription_type" : 2
+}
+- emit : inAppPurchaseOrNot
+
+
+- Socket : checkSubscription
+{
+    "user_id" : "648173cb19a4de60e5bdc67f"
+}
+- emit : expireSubscriptionOrNot
+
+
+- Socket : updateUserLatLong
+{
+    "user_id" : "64a55124315d2b1490c473bb",
+    "latitude" : ,
+    "longitude" : 
+}
+- emit : updateUser
