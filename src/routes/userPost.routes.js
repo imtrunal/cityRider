@@ -9,7 +9,8 @@ const {
     userPostCommnetList,
     userPostLikedList,
     updateUserPost,
-    deleteUserPost
+    deleteUserPost,
+    insertUsrPostInReport
 } = require("../controllers/userPost.controller");
 
 router.post("/add/:userId", upload.array('posts'), addUserPost);
@@ -19,6 +20,7 @@ router.post("/likeDislike/:userId/:postId", userPostLikeDislike);
 router.post("/commentList/:postId", userPostCommnetList);
 router.post("/likedUserList/:postId", userPostLikedList);
 router.post("/update/:userId/:postId", updateUserPost);
-router.delete("/delete/:userId/:postId", deleteUserPost)
+router.delete("/delete/:userId/:postId", deleteUserPost);
+router.post('/insertInReport',insertUsrPostInReport)
 
 module.exports = router;

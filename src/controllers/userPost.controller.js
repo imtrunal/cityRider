@@ -1010,3 +1010,36 @@ exports.deleteUserPost = async (req, res) => {
 
     }
 }   
+
+exports.insertUsrPostInReport = async (req, res) => {
+    try {
+
+        const addReportData = new ReportUserPost({
+            post_id: req.body.post_id,
+            user_id: req.body.user_id,
+        })
+        const response = await addReportData.save()
+
+        res.status(status.OK).json(
+            {
+                message: "Report User Post Added Successfully",
+                status: true,
+                code: 200,
+                statusCode: 1,
+                data: response
+            }
+        )
+
+    } catch (error) {
+        console.log("insertUsrPostInReport--Error::", error);
+        res.status(status.INTERNAL_SERVER_ERROR).json(
+            {
+                message: "Something Went Wrong",
+                status: false,
+                code: 500,
+                statusCode: 0,
+                error: error.message
+            }
+        )
+    }
+}

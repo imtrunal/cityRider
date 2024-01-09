@@ -15,7 +15,8 @@ const {
     deleteGroup,
     removeMember,
     updateGroupPost,
-    deleteGroupPost
+    deleteGroupPost,
+    insertGrpPostInReport
 } = require("../controllers/group.controller");
 
 router.post("/add/:user_id", upload.single("group_img"), insertGroup);
@@ -32,5 +33,6 @@ router.delete("/delete/:groupId", deleteGroup);
 router.delete("/delete-member/:groupId/:userId", removeMember);
 router.post("/update/:groupId/:userId/:postId", updateGroupPost);
 router.delete("/delete/:groupId/:userId/:postId", deleteGroupPost);
+router.post('/insertGrpPostInReport',insertGrpPostInReport)
 
 module.exports = router;

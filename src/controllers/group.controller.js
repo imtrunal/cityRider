@@ -1645,3 +1645,38 @@ exports.deleteGroupPost = async (req, res) => {
         
     }
 }
+
+exports.insertGrpPostInReport = async (req,res) => {
+    try {
+
+        const addGrpReportData = new ReportGroupPost({
+            user_id: req.body.user_id,
+            group_id: req.body.group_id,
+            post_id: req.body.post_id
+        })
+        const saveData = await addGrpReportData.save()
+
+        res.status(status.CREATED).json(
+            {
+                message: "Report Group Post Add Successfully",
+                status: true,
+                code: 201,
+                statusCode: 1,
+                data: saveData
+            }
+        )
+
+    } catch (error) {
+
+        console.log("insertGrpPostInReport--Error::", error);
+        res.status(status.INTERNAL_SERVER_ERROR).json(
+            {
+                message: "Something Went Wrong",
+                status: false,
+                code: 500,
+                statusCode: 0,
+                error: error.message
+            }
+        )
+    }
+}
