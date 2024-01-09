@@ -1659,7 +1659,7 @@ exports.insertGrpPostInReport = async (req,res) => {
 
         res.status(status.CREATED).json(
             {
-                message: "Report Group Post Add Successfully",
+                message: "Successfully added group post report.",
                 status: true,
                 code: 201,
                 statusCode: 1,

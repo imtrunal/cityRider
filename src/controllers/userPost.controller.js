@@ -1023,7 +1023,7 @@ exports.insertUsrPostInReport = async (req, res) => {
 
         res.status(status.OK).json(
             {
-                message: "Report User Post Added Successfully",
+                message: "Successfully added user post report.",
                 status: true,
                 code: 200,
                 statusCode: 1,

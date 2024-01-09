@@ -32,6 +32,10 @@ const {
     blockUnblockList,
 } = require("../controllers/blockUnblock.controller");
 
+const {
+    blockUnblockUsers
+} = require('../controllers/blockUnblockUsers.controller')
+
 // router.post("/register", upload.array('profile'), registration);
 router.post("/register", registration);
 router.post("/add-image/:id", upload.array('profile'), addImage)
@@ -60,7 +64,11 @@ router.get("/ten-user/:id", topTenUser)
 
 /* ----- For Block Unblock Controller ----- */
 router.post("/block-user/:user_id/:block_user_id", blockUnblock);
-router.get("/block-user-list/:user_id", blockUnblockList)
+router.get("/block-user-list/:user_id", blockUnblockList);
+
+
+/* ----- For Block Unblock Users Controller ----- */
+router.post('/block-users', blockUnblockUsers);
 
 
 module.exports = router;
