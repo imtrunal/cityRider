@@ -8,7 +8,8 @@ const Notification = require("../models/notification.model");
 const GroupMemberList = require("../models/groupMemberList.model");
 const GroupChat = require("../webSocket/models/groupChat.model");
 const GroupList = require("../models/groupList.model");
-const GroupChatRoom = require("../webSocket/models/groupChatRoom.model")
+const GroupChatRoom = require("../webSocket/models/groupChatRoom.model");
+const ReportGroupPost = require('../models/reportGroupPost.model');
 const cloudinary = require("../utils/cloudinary.utils");
 
 

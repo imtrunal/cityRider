@@ -3,6 +3,7 @@ const UserPost = require("../models/userPost.model");
 const UserPostComment = require("../models/userPostComment.model");
 const UserPostLike = require("../models/userPostLike.model");
 const FriendRequest = require("../models/frdReq.model");
+const ReportUserPost = require('../models/reportUserPost.model')
 const cloudinary = require("../utils/cloudinary.utils");
 const status = require("http-status");
 const { Readable } = require('stream');
