@@ -13,6 +13,7 @@ const GroupMemberList = require("../models/groupMemberList.model");
 const FriendRequest = require("../models/frdReq.model");
 const Notification = require("../helper/firebaseHelper");
 const InAppPurchaseModel = require("../models/inAppPurchase.model");
+const BlockUnblockUser = require("../models/blockUnblockUsers.model");
 
 function socket(io) {
 
@@ -1942,6 +1943,28 @@ function socket(io) {
             }
         })
         // ----- updateUserLatLong ----- //
+
+
+        // ----- blockUnblockUser ----- //
+        socket.on('blockUnblockUser', async (arg) => {
+            const userId = arg.user_id;
+            const blockUserId = arg.block_user_id;
+            const userRoom = `User${arg.user_id}`;
+
+            // BlockUnblockUser
+            const checkData = await BlockUnblockUser.findOne({
+                user_id: userId,
+                block_user_id: blockUserId
+            });
+
+            if (checkData == null) {
+                io.to(userRoom).emit("blockUser", 0)
+            } else {
+                io.to(userRoom).emit("blockUser", 1)
+            }
+
+        })
+        // ----- blockUnblockUser ----- //
 
     })
 
